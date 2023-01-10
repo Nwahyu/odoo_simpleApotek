@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_h_penjualan,access.h.penjualan,model_h_penjualan,,1,1,1,1
+access_h_dokter,access.h.dokter,model_h_dokter,,1,1,1,1
+access_h_pasien,access.h.pasien,model_h_pasien,,1,1,1,1
+access_h_rekmedis,access.h.rekmedis,model_h_rekmedis,,1,1,1,1
+access_h_tipemedis,access.h.tipemedis,model_h_tipemedis,,1,1,1,1
+access_h_obat,access.h.obat,model_h_obat,,1,1,1,1
+access_h_tempatobat,access.h.tempatobat,model_h_tempatobat,,1,1,1,1
+access_h_dpenjualan,access.h.dpenjualan,model_h_dpenjualan,,1,1,1,1
+access_h_idp,access.h.idp,model_h_idp,,1,1,1,1
+access_h_kamar,access.h.kamar,model_h_kamar,,1,1,1,1
+access_h_meetingdetail,access.h.meetingdetail,model_h_meetingdetail,,1,1,1,1
+access_h_rujukan,access.h.rujukan,model_h_rujukan,,1,1,1,1
+access_h_kunjungan,access.h.kunjungan,model_h_kunjungan,,1,1,1,1
+access_h_isikamar,access.h.isikamar,model_h_isikamar,,1,1,1,1
+access_h_history,access.h.history,model_h_history,,1,1,1,1

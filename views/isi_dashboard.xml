@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="gta_view_graph" model="ir.ui.view">
+        <field name="name">gta.view.graph</field>
+        <field name="model">h.kunjungan</field>
+        <field name="arch" type="xml">
+            <graph string="pai chart" type="pie">
+                <field name="pasien_id"  type="measure"/>
+                <!-- <field name="pasien_id"/> -->
+                <field name="dokter_id" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="h_penjualan_view_calendar" model="ir.ui.view">
+        <field name="name">h.penjualan.view.calendar</field>
+        <field name="model">h.rekmedis</field>
+        <field name="arch" type="xml">`
+            <calendar string="ini kalender" date_start="tgll" mode="month" color="pasien_id" quick_add="false">
+                <field name="pasien_id" />
+                <field name="tgll" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="gta_action" model="ir.actions.act_window">
+        <field name="name">Action tes view</field>
+        <field name="res_model">h.kunjungan</field>
+        <field name="view_mode">calendar,pivot,graph</field>
+    </record>
+    
+    <menuitem
+        id="graph_menu"
+        name="Graph"
+        action="gta_action"
+        parent="h_root_menu"
+        sequence="10"/>
+</odoo>

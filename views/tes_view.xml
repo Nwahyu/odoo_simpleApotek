@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tes_view_tree" model="ir.ui.view">
+        <field name="name">tes.view.tree</field>
+        <field name="model">h.tes</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="alamat" />
+                <field name="no_telp" />
+                <field name="tipe_pasien"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tes_view_form" model="ir.ui.view">
+        <field name="name">tes.view.form</field>
+        <field name="model">h.tes</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="alamat" />
+                        <field name="no_telp" />
+                        <field name="tipe_pasien" />
+                        <field name="data" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tes_pas_action" model="ir.actions.act_window">
+        <field name="name">List tes Pasien</field>
+        <field name="res_model">h.tes</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem
+        id="tes_menu"
+        name="tes menu"
+        action="tes_pas_action"
+        parent="person_menu_categ"
+        sequence="10"/>
+
+</odoo>

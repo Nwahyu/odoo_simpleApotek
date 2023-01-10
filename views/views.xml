@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="apotek.list">
+      <field name="name">apotek list</field>
+      <field name="model">apotek.apotek</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="apotek.action_window">
+      <field name="name">apotek window</field>
+      <field name="res_model">apotek.apotek</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="apotek.action_server">
+      <field name="name">apotek server</field>
+      <field name="model_id" ref="model_apotek_apotek"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="apotek" id="apotek.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="apotek.menu_1" parent="apotek.menu_root"/>
+    <menuitem name="Menu 2" id="apotek.menu_2" parent="apotek.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="apotek.menu_1_list" parent="apotek.menu_1"
+              action="apotek.action_window"/>
+    <menuitem name="Server to list" id="apotek" parent="apotek.menu_2"
+              action="apotek.action_server"/>
+-->
+  </data>
+
+  <!-- apotek.rekmedis_action -->
+  <record id="rekmedis_action" model="ir.actions.act_window">
+    <field name="name">List medis</field>
+    <field name="res_model">h.rekmedis</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[]</field>
+    <field name="context">{}</field>
+  </record>
+
+</odoo>

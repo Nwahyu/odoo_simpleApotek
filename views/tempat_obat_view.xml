@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="tmpt_obat_view_tree" model="ir.ui.view">
+    <field name="name">tmpt.obat.view.tree</field>
+    <field name="model">h.tempatobat</field>
+    <field name="arch" type="xml">
+        <tree string="">
+            <field name="name" />
+            <field name="tgl_masuk" />
+            <field name="catatan" />
+        </tree>
+    </field>
+</record>
+
+    <record id="tmpt_obat_view_form" model="ir.ui.view">
+        <field name="name">tmpt.obat.view.form</field>
+        <field name="model">h.tempatobat</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="tgl_masuk" />
+                        <field name="catatan" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tmpt_obat_action" model="ir.actions.act_window">
+        <field name="name">Tempat Obat</field>
+        <field name="res_model">h.tempatobat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="tmpt_obat_menu"
+        name="Tempat penyimpanan obat"
+        action="tmpt_obat_action"
+        parent="apotek_menu_categ"
+        sequence="10"/>
+
+</odoo>

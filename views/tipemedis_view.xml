@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tipemedis_view_tree" model="ir.ui.view">
+        <field name="name">tipemedis.view.tree</field>
+        <field name="model">h.tipemedis</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="dokter_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="tipemedis_view_form" model="ir.ui.view">
+        <field name="name">tipemedis.view.form</field>
+        <field name="model">h.tipemedis</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="dokter_ids" readonly='True' help="ini merupakan list dokter"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tipemedis_action" model="ir.actions.act_window">
+        <field name="name">Tipe medis</field>
+        <field name="res_model">h.tipemedis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="tipemedis_menu"
+        name="tipe medis"
+        action="tipemedis_action"
+        parent="rekam_medis_categ"
+        sequence="10"/>
+</odoo>

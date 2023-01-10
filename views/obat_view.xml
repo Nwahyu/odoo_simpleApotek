@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- <record id="obat_view_search" model="ir.ui.view">
+        <field name="name">obat.view.search</field>
+        <field name="model">h.obat</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <searchpanel>
+                    <field name="tmpt_obat_id" enable_counters="1" select="multi"></field>
+                </searchpanel>
+            </search>
+        </field>
+    </record> -->
+
+    <record id="h_obat_view_tree" model="ir.ui.view">
+        <field name="name">h.obat.view.tree</field>
+        <field name="model">h.obat</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="stok" />
+                <field name="harga_jual" />
+                <field name="tmpt_obat_id" />
+                <field name="admin_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="h_obat_view_form" model="ir.ui.view">
+        <field name="name">h.obat.view.form</field>
+        <field name="model">h.obat</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <!-- <button string="inikan?" name="button_cek_active" type="object" class="oe_highlight"/> -->
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="stok" />
+                        <field name="harga_jual" />
+                        <field name="tmpt_obat_id" />
+                        <field name="admin_id" readonly="True"/>
+                    </group>
+                    <notebook>
+                        <page name='history' string='history'>
+                            <field name="history_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="stok" />
+                                    <field name="harga_jual" />
+                                    <field name="admin_id" />
+                                    <field name="tmpt_obat_id" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="stok" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="h_obat_action" model="ir.actions.act_window">
+        <field name="name">List Obat</field>
+        <field name="res_model">h.obat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="obat_menu"
+        name="list obat"
+        action="h_obat_action"
+        parent="apotek_menu_categ"
+        sequence="10"/>
+</odoo>

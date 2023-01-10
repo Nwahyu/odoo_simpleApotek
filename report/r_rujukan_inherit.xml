@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="ini_template" name="sale.report_saleorder_document" inherit_id="module_name.ini_template">
+        <xpath expr="div[@class='row mt32 mb32']" position="inside">
+            
+        </xpath>
+    </template>
+
+</odoo>

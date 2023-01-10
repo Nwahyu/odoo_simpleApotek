@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rekmedis_view_search" model="ir.ui.view">
+        <field name="name">rekmedis.view.search</field>
+        <field name="model">h.rekmedis</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <filter name="status" string="status" context="{'group_by': 'state'}" />
+                <searchpanel>
+                    <field name="pasien_id" />
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="rekmedis_view_tree" model="ir.ui.view">
+        <field name="name">rekmedis.view.tree</field>
+        <field name="model">h.rekmedis</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="no_antrian" />
+               <field name="pasien_id" />
+               <field name="tgll"/>
+               <field name="catatan" />
+               <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="rekmedis_view_form" model="ir.ui.view">
+        <field name="name">rekmedis.view.form</field>
+        <field name="model">h.rekmedis</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header string="inihead">
+                    <!-- <field name="state" widget="statusbar" statusbar_visible="antri,cek,berobat,selesai" options="{'clickable': 1}" attrs="{'invisible': [('kekeyi','=',True)]}"/>
+                    <field name="state1" widget="statusbar" statusbar_visible="antri,utang,cek,berobat,selesai" options="{'clickable': 1}" attrs="{'invisible': [('kekeyi','!=',True)]}"/> -->
+                    <button string="next" name="button_state_next" type="object" class="oe_highlight" attrs="{'invisible': [('state', '=', 'selesai')]}"/>
+                    <button string="prev" name="button_state_prev" type="object" class="oe_highlight" attrs="{'invisible': [('state', '=', 'selesai')]}"/>
+                    <field name="state" widget='statusbar'/>
+                </header>
+                <sheet>
+                    <group name="" string="ganti?">
+                        <field name="kekeyi" invisible='1'/>
+                        <field name="tgll" />
+                        <field name="no_antrian_id" />
+                        <field name="dokter_id" />
+                        <field name="tipemedis_id" />
+                        <field name="pasien_id" />
+                        <field name="catatan" />
+                        <!-- <field name="total" /> -->
+                    </group>
+                    <group name="obat" string="string">
+                        <field name="dpenjualan_ids">
+                            <tree editable='bottom'>
+                                <field name="obat_id" />
+                                <field name="qty" />
+                                <field name="sub_total" sum="Total"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="rekmedis_action" model="ir.actions.act_window">
+        <field name="name">List rekam medis</field>
+        <field name="res_model">h.rekmedis</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+<menuitem
+    id="rekmedis_menu"
+    name="rekam medis"
+    action="rekmedis_action"
+    parent="rekam_medis_categ"
+    sequence="10"/>
+</odoo>

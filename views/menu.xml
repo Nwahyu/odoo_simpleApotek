@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="h_root_menu"
+        name="apotek"
+        sequence="0"/>
+
+    <menuitem
+        id="person_menu_categ"
+        name="Person"
+        parent="h_root_menu"
+        sequence="5"/>
+
+    <menuitem
+        id="apotek_menu_categ"
+        name="Farmasi"
+        parent="h_root_menu"
+        sequence="10"/>
+
+    <menuitem
+        id="rekam_medis_categ"
+        name="Rekam Medis"
+        parent="h_root_menu"
+        sequence="15"/>
+
+    <menuitem
+        id="kamar_menu_categ"
+        name="Rawat Inap"
+        parent="h_root_menu"
+        sequence="20"/>
+
+    <menuitem
+        id="backdoor_menu"
+        name="backdoor"
+        parent="h_root_menu"
+        sequence="100"/>
+
+</odoo>

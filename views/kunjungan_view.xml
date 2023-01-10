@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="kunjungan_view_calendar" model="ir.ui.view">
+        <field name="name">kunjungan.view.calendar</field>
+        <field name="model">h.kunjungan</field>
+        <field name="arch" type="xml">
+            <calendar string="" date_start="date_start" color="">
+                <field name="pasien_id" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="kunjungan_view_tree" model="ir.ui.view">
+        <field name="name">kunjungan.view.tree</field>
+        <field name="model">h.kunjungan</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="dokter_id" />
+                <field name="pasien_id" />
+                <field name="tipemedis_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="kunjungan_view_form" model="ir.ui.view">
+        <field name="name">kunjungan.view.form</field>
+        <field name="model">h.kunjungan</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="dokter_id" />
+                        <field name="pasien_id" />
+                        <field name="tipemedis_id" />
+
+                        <field name="date_start"/>
+                        <field name="date_end" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="kunjungan_view_gantt" model="ir.ui.view">
+        <field name="name">kunjungan.view.gantt</field>
+        <field name="model">h.kunjungan</field>
+        <field name="arch" type="xml">
+            <gantt string="gantt" date_start="date_start" date_stop="date_end">
+                <field name="name" />
+            </gantt>
+        </field>
+    </record>
+
+    <record id="kunjungan_action" model="ir.actions.act_window">
+        <field name="name">list kunjungan</field>
+        <field name="res_model">h.kunjungan</field>
+        <field name="view_mode">tree,calendar,form</field>
+        <field name="help" type="html">
+            <p>belum ada kunjungan nih</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="kunjungan_menu"
+        name="Kunjungan"
+        action="kunjungan_action"
+        parent="h_root_menu"
+        sequence="10" />
+
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="kunjungan_view_gantt" model="ir.ui.view">
+        <field name="name">kunjungan.view.gantt</field>
+        <field name="model">h.kunjungan</field>
+        <field name="arch" type="xml">
+            <gantt string="" date_start="date_start" date_stop="date_end">
+            </gantt>
+        </field>
+    </record>
+
+    <record id="kunjungan_graph_action" model="ir.actions.act_window">
+        <field name="name">Action Name</field>
+        <field name="res_model">h.kunjungan</field>
+        <field name="view_mode">graph</field>
+    </record>
+
+<!-- graph rekmedis -->
+    <record id="dash_graph_view_graph" model="ir.ui.view">
+        <field name="name">dash_graph view graph</field>
+        <field name="model">h.rekmedis</field>
+        <field name="arch" type="xml">
+            <graph string="" type="bar">
+                <field name="dokter_id"></field>
+            </graph>
+        </field>
+    </record>
+<!-- buat action baru untuk ciptain graph -->
+    <record id="dash_graph_action" model="ir.actions.act_window">
+        <field name="name">dash_graph action</field>
+        <field name="res_model">h.rekmedis</field>
+        <field name="view_mode">graph</field>
+        <field name="domain">[
+        ('state','=','selesai')]</field>
+    </record>
+    
+<!-- action dashboard -->
+    <record id="dashboard_view_form" model="ir.ui.view">
+        <field name="name">dashboard.view.form</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="/tree" position="attributes">
+                <attribute name="change_layout">false</attribute>
+            </xpath> -->
+            <form string="">
+                <board style="1-2" change_layout='1'>
+                        <column>
+                            <action
+                                string="Daftar Dokter"
+                                name="%(dokter_action)d"
+                            ></action>
+                            <action
+                                string="ini list pasien"
+                                name="%(pasien_action)d"></action>
+                        </column>
+                        <column>
+                            <action
+                                string="Graph jumlah pelayanan"
+                                name="%(dash_graph_action)d"
+                            ></action>
+                            <action
+                                string='graph kunjungan'
+                                name='%(kunjungan_graph_action)d'
+                            ></action>
+                        </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+    <record id="dashboard_action" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">tree,form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="dashboard_view_form"></field>
+    </record>
+
+    <menuitem
+        id="dashboard_menu"
+        name="dashboard"
+        action="dashboard_action"
+        parent="h_root_menu"
+        sequence="1"/>
+</odoo>

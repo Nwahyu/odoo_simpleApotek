@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pasien_view_search" model="ir.ui.view">
+        <field name="name">pasien.view.search</field>
+        <field name="model">h.pasien</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <filter name="pasien" string="pasien" domain="[('is_pasien', '=', 'True')]"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="pasien_view_tree" model="ir.ui.view">
+        <field name="name">pasien.view.tree</field>
+        <field name="model">h.pasien</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="alamat" />
+                <field name="no_telp" />
+                <field name="tipe_pasien"/>
+                <field name="kamar" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="pasien_view_form" model="ir.ui.view">
+        <field name="name">pasien.view.form</field>
+        <field name="model">h.pasien</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="alamat" />
+                        <field name="no_telp" />
+                        <field name="tipe_pasien" />
+                        <field name="data" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pasien_action" model="ir.actions.act_window">
+        <field name="name">List Pasien</field>
+        <field name="res_model">h.pasien</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain"></field>
+        <field name="context">
+            {
+                'search_default_pasien' : 1,
+                'default_is_pasien': True
+            }
+        </field>
+    </record>
+
+
+    <menuitem
+        id="pasien_menu"
+        name="pasien"
+        action="pasien_action"
+        parent="person_menu_categ"
+        sequence="10"/>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="idp_view_tree" model="ir.ui.view">
+        <field name="name">idp.view.tree</field>
+        <field name="model">h.idp</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="antrian" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="idp_view_form" model="ir.ui.view">
+        <field name="name">idp.view.form</field>
+        <field name="model">h.idp</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="antrian" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="idp_action" model="ir.actions.act_window">
+        <field name="name">id action</field>
+        <field name="res_model">h.idp</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="idp_menu"
+        name="kumpulan id"
+        action="idp_action"
+        parent="backdoor_menu"
+        sequence="10"/>
+
+</odoo>

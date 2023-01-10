@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_rujukan" model="ir.actions.report">
+        <field name="name">Rujukan</field>
+        <field name="model">h.rujukan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">apotek.rujukan_tmplt</field>
+        <field name="report_file">apotek.rujukan_tmplt</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="model_h_rujukan"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="rujukan_tmplt">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <p>p doang</p>
+                        <h1>nama :
+                            <span t-field="o.pasien_id.name"></span>
+                        </h1>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- <template id="head_inherit" inherit_id="sale.report_saleorder_documentt">
+        <xpath expr="//div[@class='row mt32 mb32']" position="after">
+            <div class="row mt32 mb32" id="tes_inheti">
+                <div class="col-auto mw-100 mb-2">
+                    <strong>ini page?</strong>
+                </div>
+            </div>
+        </xpath>
+    </template> -->
+</odoo>
